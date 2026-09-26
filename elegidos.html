@@ -145,21 +145,25 @@
     }
     @media(max-width:900px){
       .la .inner{padding-bottom:40px}
-      .lb h1{font-size:13vw}
-      .lb .machines{width:100%}
+      .lb{min-height:auto;padding-bottom:30px}
+      .lb h1{font-size:13vw;margin-top:30px}
+      .lb .machines{position:static;transform:none;width:100%;margin-top:6px}
       .lb .contact{display:none}
-      .lb .meta{left:22px;bottom:34px}
+      .lb .meta{position:static;margin:18px 22px 0}
+      .lb .meta .lead{max-width:none}
       .lh{grid-template-columns:1fr}
       .lh .stage{min-height:340px}
       .lh .machines{left:0;width:110%}
+      .le{min-height:74svh}
       .le h1{font-size:12vw}
+      .le h1 .clip{background-image:url('assets/hero-fill.webp');background-position:center 42%}
       .le .machines{width:70%;bottom:-6%}
       .ly h1,.lk h1{font-size:12vw}
       .ly .under,.lk .under{padding-bottom:40px}
       .m1 .inner{flex-direction:column;gap:18px}
       .m1 .machines{width:130%;transform:translateX(-50%)}
       .m1 .paint{display:none}
-      .m1 .floor-meta{left:22px;bottom:24px}
+      .m1 .floor-meta{position:static;margin:16px 22px 0}
       .m3 .machines{width:110%;bottom:110px}
       .m3 .plinth{flex-wrap:wrap;padding:22px}
       .exf{padding-block:28px 32px;min-height:auto;gap:22px}
