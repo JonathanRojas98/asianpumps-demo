@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASIPS | Todos los heros</title>
+  <link rel="icon" href="assets/logo.jpeg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .top{position:sticky;top:0;z-index:9;display:flex;gap:18px;align-items:center;background:var(--ink);color:var(--bg);padding:10px 24px;font-size:12px}
+    .top a{color:inherit;border-bottom:1px solid transparent;padding:4px 0}
+    .top a:hover{border-color:currentColor;color:inherit}
+    .intro{padding-block:40px 8px}
+    .intro h1{font-size:clamp(34px,4vw,56px);letter-spacing:-.04em;font-weight:750}
+    .intro p{margin-top:10px;font-size:14px;color:var(--muted);max-width:560px}
+    .toc{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:6px 28px;padding-block:22px 34px;border-bottom:1px solid var(--line)}
+    .toc h2{grid-column:1/-1;font-size:13px;letter-spacing:.02em;color:var(--muted);font-weight:600;margin-top:14px}
+    .toc a{font-size:14px;font-weight:600;padding:5px 0;border-bottom:1px solid transparent}
+    .toc a:hover{border-color:currentColor}
+    .toc a span{color:var(--muted);font-weight:400;font-size:12.5px}
+    .item{border-bottom:6px solid var(--ink)}
+    .item .bar{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding-block:14px}
+    .item .bar div{display:flex;align-items:baseline;gap:14px}
+    .item .bar strong{font-size:13px}
+    .item .bar span{font-size:12px;color:var(--muted)}
+    .item .bar a{font-size:12px;font-weight:600;color:var(--cta);white-space:nowrap}
+    .item iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
+  </style>
+</head>
+<body>
+  <div class="top"><strong>Catálogo de heros</strong><a href="#toc">Índice</a><a href="./" style="margin-left:auto">Volver al sitio</a></div>
+
+  <div class="wrap intro">
+    <h1>Todos los heros</h1>
+    <p>Cada exploración en orden cronológico. Los demos son las páginas originales embebidas: dentro de cada recuadro funcionan el hover, las animaciones y el scroll propio.</p>
+  </div>
+
+  <nav class="wrap toc" id="toc" aria-label="Índice de heros">
+    <h2>Ronda 1 · Estilos de hero</h2>
+    <a href="#v-ha">A · Bloque de color</a>
+    <a href="#v-hb">B · Cinematográfico <span>(elegido entonces)</span></a>
+    <a href="#v-hc">C · Tipográfico con catálogo</a>
+    <a href="#v-hd">D · Mosaico fotográfico</a>
+    <h2>Ronda 2 · Tipografía sobre las bombas</h2>
+    <a href="#v-la">A · Duotono de marca</a>
+    <a href="#v-lb">B · Póster</a>
+    <a href="#v-lc">C · Contorno</a>
+    <a href="#v-ld">D · Blanco sobre máquina</a>
+    <h2>Ronda 3 · Más letras</h2>
+    <a href="#v-le">E · Foto dentro de las letras</a>
+    <a href="#v-lf">F · Sándwich</a>
+    <a href="#v-lg">G · Jerarquía invertida</a>
+    <a href="#v-lh">H · Bloque a media pantalla</a>
+    <h2>Ronda 4 · La foto dentro de las letras</h2>
+    <a href="#v-li">I · Relleno denso</a>
+    <a href="#v-lj">J · Sobre marino</a>
+    <a href="#v-lk">K · Revelado <span>(favorita)</span></a>
+    <a href="#v-ll">L · Duotono</a>
+    <h2>Ronda 5 · Intensidades del revelado</h2>
+    <a href="#v-lq">Q · Acero medio</a>
+    <a href="#v-lr">R · Azul fuerte</a>
+    <a href="#v-ls">S · Duotono profundo</a>
+    <a href="#v-lt">T · Con atmósfera</a>
+    <h2>Ronda 6 · Composiciones del revelado</h2>
+    <a href="#v-lu">U · Colosal a la izquierda</a>
+    <a href="#v-lv">V · Póster centrado</a>
+    <a href="#v-lw">W · Palabra única</a>
+    <a href="#v-lx">X · Diagonal</a>
+    <h2>Ronda 7 · Colores y voces</h2>
+    <a href="#v-ly">Y · Nocturno total</a>
+    <a href="#v-lz">Z · Grafito y cobre</a>
+    <a href="#v-laa">AA · Cian eléctrico</a>
+    <a href="#v-lab">AB · Mayúsculas compactas</a>
+    <a href="#v-lac">AC · Peso ligero</a>
+    <a href="#v-lad">AD · Contorno y revelado</a>
+    <a href="#v-lae">AE · Papel azulado</a>
+    <a href="#v-laf">AF · Campo azul de marca</a>
+    <h2>Ronda 8 · Heros integrados <span style="font-weight:400">(recorte de ChatGPT)</span></h2>
+    <a href="#v-m1">1 · Muelle</a>
+    <a href="#v-m2">2 · Sala real</a>
+    <a href="#v-m3">3 · Plinto</a>
+    <a href="#v-m4">4 · Esquina</a>
+    <h2>Ronda 9 · Explosión</h2>
+    <a href="#v-ex">5 · Despiece animado</a>
+    <h2>En producción</h2>
+    <a href="#v-idx">Hero actual de index.html</a>
+  </nav>
+
+  <!-- Ronda 1 -->
+  <div class="item" id="v-ha"><div class="wrap bar"><div><strong>Ronda 1 · A</strong><span>Bloque de color con recorte</span></div><a href="heros.html#opcion-a" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="heros.html" data-hash="opcion-a" title="Hero A"></iframe></div>
+  <div class="item" id="v-hb"><div class="wrap bar"><div><strong>Ronda 1 · B</strong><span>Cinematográfico, elegido en su momento</span></div><a href="heros.html#opcion-b" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="heros.html" data-hash="opcion-b" title="Hero B"></iframe></div>
+  <div class="item" id="v-hc"><div class="wrap bar"><div><strong>Ronda 1 · C</strong><span>Tipográfico con tira de catálogo</span></div><a href="heros.html#opcion-c" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="heros.html" data-hash="opcion-c" title="Hero C"></iframe></div>
+  <div class="item" id="v-hd"><div class="wrap bar"><div><strong>Ronda 1 · D</strong><span>Mosaico fotográfico</span></div><a href="heros.html#opcion-d" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="heros.html" data-hash="opcion-d" title="Hero D"></iframe></div>
+
+  <!-- Ronda 2 -->
+  <div class="item" id="v-la"><div class="wrap bar"><div><strong>Ronda 2 · A</strong><span>Duotono de marca</span></div><a href="letras.html#opcion-a" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras.html" data-hash="opcion-a" title="Letras A"></iframe></div>
+  <div class="item" id="v-lb"><div class="wrap bar"><div><strong>Ronda 2 · B</strong><span>Póster: bombas delante de las letras</span></div><a href="letras.html#opcion-b" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras.html" data-hash="opcion-b" title="Letras B"></iframe></div>
+  <div class="item" id="v-lc"><div class="wrap bar"><div><strong>Ronda 2 · C</strong><span>Contorno</span></div><a href="letras.html#opcion-c" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras.html" data-hash="opcion-c" title="Letras C"></iframe></div>
+  <div class="item" id="v-ld"><div class="wrap bar"><div><strong>Ronda 2 · D</strong><span>Blanco sobre máquina</span></div><a href="letras.html#opcion-d" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras.html" data-hash="opcion-d" title="Letras D"></iframe></div>
+
+  <!-- Ronda 3 -->
+  <div class="item" id="v-le"><div class="wrap bar"><div><strong>Ronda 3 · E</strong><span>La foto dentro de las letras, primera prueba</span></div><a href="letras2.html#opcion-e" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras2.html" data-hash="opcion-e" title="Letras E"></iframe></div>
+  <div class="item" id="v-lf"><div class="wrap bar"><div><strong>Ronda 3 · F</strong><span>Sándwich: el texto atraviesa la máquina</span></div><a href="letras2.html#opcion-f" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras2.html" data-hash="opcion-f" title="Letras F"></iframe></div>
+  <div class="item" id="v-lg"><div class="wrap bar"><div><strong>Ronda 3 · G</strong><span>Jerarquía invertida</span></div><a href="letras2.html#opcion-g" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras2.html" data-hash="opcion-g" title="Letras G"></iframe></div>
+  <div class="item" id="v-lh"><div class="wrap bar"><div><strong>Ronda 3 · H</strong><span>Bloque de color a media pantalla</span></div><a href="letras2.html#opcion-h" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras2.html" data-hash="opcion-h" title="Letras H"></iframe></div>
+
+  <!-- Ronda 4 -->
+  <div class="item" id="v-li"><div class="wrap bar"><div><strong>Ronda 4 · I</strong><span>Relleno denso de volutas</span></div><a href="letras3.html#opcion-i" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras3.html" data-hash="opcion-i" title="Letras I"></iframe></div>
+  <div class="item" id="v-lj"><div class="wrap bar"><div><strong>Ronda 4 · J</strong><span>Sobre marino</span></div><a href="letras3.html#opcion-j" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras3.html" data-hash="opcion-j" title="Letras J"></iframe></div>
+  <div class="item" id="v-lk"><div class="wrap bar"><div><strong>Ronda 4 · K</strong><span>Revelado, la favorita de las letras</span></div><a href="letras3.html#opcion-k" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras3.html" data-hash="opcion-k" title="Letras K"></iframe></div>
+  <div class="item" id="v-ll"><div class="wrap bar"><div><strong>Ronda 4 · L</strong><span>Duotono</span></div><a href="letras3.html#opcion-l" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras3.html" data-hash="opcion-l" title="Letras L"></iframe></div>
+
+  <!-- Ronda 5 -->
+  <div class="item" id="v-lq"><div class="wrap bar"><div><strong>Ronda 5 · Q</strong><span>Acero medio</span></div><a href="letras5.html#opcion-q" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras5.html" data-hash="opcion-q" title="Letras Q"></iframe></div>
+  <div class="item" id="v-lr"><div class="wrap bar"><div><strong>Ronda 5 · R</strong><span>Azul fuerte</span></div><a href="letras5.html#opcion-r" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras5.html" data-hash="opcion-r" title="Letras R"></iframe></div>
+  <div class="item" id="v-ls"><div class="wrap bar"><div><strong>Ronda 5 · S</strong><span>Duotono profundo</span></div><a href="letras5.html#opcion-s" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras5.html" data-hash="opcion-s" title="Letras S"></iframe></div>
+  <div class="item" id="v-lt"><div class="wrap bar"><div><strong>Ronda 5 · T</strong><span>Con atmósfera</span></div><a href="letras5.html#opcion-t" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras5.html" data-hash="opcion-t" title="Letras T"></iframe></div>
+
+  <!-- Ronda 6 -->
+  <div class="item" id="v-lu"><div class="wrap bar"><div><strong>Ronda 6 · U</strong><span>Colosal a la izquierda</span></div><a href="letras6.html#opcion-u" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras6.html" data-hash="opcion-u" title="Letras U"></iframe></div>
+  <div class="item" id="v-lv"><div class="wrap bar"><div><strong>Ronda 6 · V</strong><span>Póster centrado</span></div><a href="letras6.html#opcion-v" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras6.html" data-hash="opcion-v" title="Letras V"></iframe></div>
+  <div class="item" id="v-lw"><div class="wrap bar"><div><strong>Ronda 6 · W</strong><span>Palabra única</span></div><a href="letras6.html#opcion-w" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras6.html" data-hash="opcion-w" title="Letras W"></iframe></div>
+  <div class="item" id="v-lx"><div class="wrap bar"><div><strong>Ronda 6 · X</strong><span>Diagonal</span></div><a href="letras6.html#opcion-x" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras6.html" data-hash="opcion-x" title="Letras X"></iframe></div>
+
+  <!-- Ronda 7 -->
+  <div class="item" id="v-ly"><div class="wrap bar"><div><strong>Ronda 7 · Y</strong><span>Nocturno total</span></div><a href="letras7.html#op-y" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras7.html" data-hash="op-y" title="Letras Y"></iframe></div>
+  <div class="item" id="v-lz"><div class="wrap bar"><div><strong>Ronda 7 · Z</strong><span>Grafito y cobre</span></div><a href="letras7.html#op-z" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras7.html" data-hash="op-z" title="Letras Z"></iframe></div>
+  <div class="item" id="v-laa"><div class="wrap bar"><div><strong>Ronda 7 · AA</strong><span>Cian eléctrico</span></div><a href="letras7.html#op-aa" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras7.html" data-hash="op-aa" title="Letras AA"></iframe></div>
+  <div class="item" id="v-lab"><div class="wrap bar"><div><strong>Ronda 7 · AB</strong><span>Mayúsculas compactas</span></div><a href="letras7.html#op-ab" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras7.html" data-hash="op-ab" title="Letras AB"></iframe></div>
+  <div class="item" id="v-lac"><div class="wrap bar"><div><strong>Ronda 7 · AC</strong><span>Peso ligero</span></div><a href="letras7.html#op-ac" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras7.html" data-hash="op-ac" title="Letras AC"></iframe></div>
+  <div class="item" id="v-lad"><div class="wrap bar"><div><strong>Ronda 7 · AD</strong><span>Contorno y revelado</span></div><a href="letras7.html#op-ad" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras7.html" data-hash="op-ad" title="Letras AD"></iframe></div>
+  <div class="item" id="v-lae"><div class="wrap bar"><div><strong>Ronda 7 · AE</strong><span>Papel azulado</span></div><a href="letras7.html#op-ae" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras7.html" data-hash="op-ae" title="Letras AE"></iframe></div>
+  <div class="item" id="v-laf"><div class="wrap bar"><div><strong>Ronda 7 · AF</strong><span>Campo azul de marca</span></div><a href="letras7.html#op-af" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="letras7.html" data-hash="op-af" title="Letras AF"></iframe></div>
+
+  <!-- Ronda 8 -->
+  <div class="item" id="v-m1"><div class="wrap bar"><div><strong>Ronda 8 · 1</strong><span>Muelle: suelo, sombra y marca pintada</span></div><a href="heros2.html#muelle" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="heros2.html" data-hash="muelle" title="Hero Muelle"></iframe></div>
+  <div class="item" id="v-m2"><div class="wrap bar"><div><strong>Ronda 8 · 2</strong><span>Sala real con tarjetas</span></div><a href="heros2.html#sala" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="heros2.html" data-hash="sala" title="Hero Sala"></iframe></div>
+  <div class="item" id="v-m3"><div class="wrap bar"><div><strong>Ronda 8 · 3</strong><span>Plinto: la banda oculta las patas</span></div><a href="heros2.html#plinto" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="heros2.html" data-hash="plinto" title="Hero Plinto"></iframe></div>
+  <div class="item" id="v-m4"><div class="wrap bar"><div><strong>Ronda 8 · 4</strong><span>Esquina: cortado por dos bordes</span></div><a href="heros2.html#esquina" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="heros2.html" data-hash="esquina" title="Hero Esquina"></iframe></div>
+
+  <!-- Ronda 9 -->
+  <div class="item" id="v-ex"><div class="wrap bar"><div><strong>Ronda 9 · 5</strong><span>Explosión: despiece real animado, pasa el cursor sobre la bomba</span></div><a href="heros3.html" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="heros3.html" title="Hero Explosión"></iframe></div>
+
+  <!-- Producción -->
+  <div class="item" id="v-idx"><div class="wrap bar"><div><strong>En producción</strong><span>El hero actual de index.html: capas, titular detrás de la máquina</span></div><a href="./" target="_blank">Abrir página original</a></div><iframe loading="lazy" src="" title="Hero actual"></iframe></div>
+
+  <script>
+  for (const f of document.querySelectorAll('iframe[data-hash]')) {
+    f.addEventListener('load', () => {
+      try {
+        const el = f.contentDocument.getElementById(f.dataset.hash);
+        if (el) f.contentWindow.scrollTo(0, el.getBoundingClientRect().top + f.contentWindow.scrollY);
+      } catch (e) {}
+    });
+  }
+  </script>
+</body>
+</html>

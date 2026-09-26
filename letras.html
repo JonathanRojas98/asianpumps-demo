@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASIPS | Comparador de tipografía del hero</title>
+  <link rel="icon" href="assets/logo.jpeg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .pick{position:sticky;top:0;z-index:5;display:flex;gap:18px;align-items:center;background:var(--ink);color:var(--bg);padding:10px 24px;font-size:12px}
+    .pick a{color:inherit;border-bottom:1px solid transparent;padding:4px 0}
+    .pick a:hover{border-color:currentColor;color:inherit}
+    .variant-label{display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+    .variant-label strong{font-size:13px}
+    .variant-label span{font-size:12px;color:var(--muted)}
+    .demo{border-bottom:6px solid var(--ink)}
+    .lead{font-size:15px;max-width:380px}
+    .actions{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+
+    /* A: duotono de marca */
+    .la{position:relative;min-height:86svh;display:flex;align-items:flex-end;overflow:hidden;background:#0a1b2a}
+    .la>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.6) contrast(1.02)}
+    .la .tint{position:absolute;inset:0;background:linear-gradient(155deg,rgba(9,86,138,.6) 0%,rgba(10,27,42,.55) 45%,rgba(10,27,42,.92) 100%)}
+    .la .inner{position:relative;width:100%;padding-bottom:64px}
+    .la h1{font-size:clamp(52px,6.4vw,104px);letter-spacing:-.045em;line-height:.99;font-weight:750;color:#fff}
+    .la h1 em{color:#79c5f1;font-style:normal}
+    .la .lead{color:#c9dcea;margin-top:20px}
+    .la .ghostw{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:16px 34px;border:1px solid rgba(255,255,255,.5);color:#fff;font-size:13px;font-weight:600}
+
+    /* B: palabra gigante detrás del producto */
+    .lb{position:relative;min-height:92svh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start}
+    .lb h1{margin-top:8vh;text-align:center;font-size:clamp(64px,9.4vw,150px);letter-spacing:-.05em;line-height:.94;font-weight:750;color:var(--ink)}
+    .lb h1 em{color:var(--blue);font-style:normal}
+    .lb .machines{position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:min(62%,980px);z-index:1;pointer-events:none}
+    .lb .machines img{width:100%;height:auto;display:block;filter:drop-shadow(0 40px 30px rgba(15,31,42,.18))}
+    .lb .meta{position:absolute;left:64px;bottom:56px;z-index:2}
+    .lb .meta .lead{color:var(--muted);max-width:300px}
+    .lb .contact{position:absolute;right:64px;bottom:56px;z-index:2;text-align:right}
+    .lb .contact a{font-weight:650;font-size:15px}
+
+    /* C: línea de contorno */
+    .lc{position:relative;min-height:88svh;display:flex;align-items:center;overflow:hidden}
+    .lc .machines{position:absolute;right:-4%;bottom:0;width:min(84%,1300px);z-index:1;pointer-events:none}
+    .lc .machines img{width:100%;height:auto;display:block;filter:drop-shadow(0 40px 30px rgba(15,31,42,.17))}
+    .lc .inner{position:relative;width:100%;align-self:stretch;display:flex;flex-direction:column;padding-block:56px}
+    .lc h1{position:relative;z-index:2;font-size:clamp(56px,8.7vw,134px);letter-spacing:-.045em;line-height:.98;font-weight:750;color:var(--ink)}
+    .lc h1 .outline{display:block;color:transparent;-webkit-text-stroke:3px var(--ink);paint-order:stroke}
+    .lc h1 .outline em{color:transparent;-webkit-text-stroke-color:var(--blue);font-style:normal}
+    .lc .meta{position:relative;z-index:2;margin-top:auto}
+    .lc .meta .lead{color:var(--muted);max-width:330px}
+
+    /* D: blanco sobre la maquinaria */
+    .ld{position:relative;min-height:90svh;overflow:hidden;display:flex;align-items:flex-start}
+    .ld .machines{position:absolute;right:-12%;bottom:-4%;width:min(96%,1500px);z-index:0;pointer-events:none}
+    .ld .machines img{width:100%;height:auto;display:block;filter:drop-shadow(0 40px 30px rgba(15,31,42,.2))}
+    .ld .inner{position:relative;z-index:1;width:100%;padding-top:9vh;display:flex;flex-direction:column;align-items:flex-end}
+    .ld h1{text-align:right;font-size:clamp(52px,6.6vw,108px);letter-spacing:-.045em;line-height:1;font-weight:750;color:#fff;text-shadow:0 2px 6px rgba(10,27,42,.35),0 14px 44px rgba(10,27,42,.45)}
+    .ld h1 em{color:#8ed0f7;font-style:normal}
+    .ld .lead{color:#eaf3fa;text-align:right;text-shadow:0 1px 4px rgba(10,27,42,.5),0 8px 26px rgba(10,27,42,.5);margin-top:18px}
+    .ld .actions{justify-content:flex-end}
+    .ld .ghostw{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:16px 34px;border:1px solid rgba(255,255,255,.65);color:#fff;font-size:13px;font-weight:600}
+
+    @media(max-width:900px){
+      .la .inner{padding-bottom:40px}
+      .lb h1{font-size:13vw}
+      .lb .machines{width:100%}
+      .lb .contact{display:none}
+      .lb .meta{left:22px;bottom:34px}
+      .lc h1{font-size:11.5vw}
+      .lc .machines{width:120%;right:-15%}
+      .ld .machines{width:150%;right:-30%}
+    }
+  </style>
+</head>
+<body>
+  <div class="pick"><strong>Tipografía sobre las bombas</strong><a href="#opcion-a">A</a><a href="#opcion-b">B</a><a href="#opcion-c">C</a><a href="#opcion-d">D</a><a href="./" style="margin-left:auto">Volver al sitio</a></div>
+
+  <!-- ===== A ===== -->
+  <div class="demo" id="opcion-a">
+    <div class="wrap variant-label"><strong>Opción A</strong><span>Duotono de marca: la foto original teñida de azul, letras blancas directas</span></div>
+    <section class="la">
+      <img src="assets/hero.jpeg" alt="Sala de bombas centrífugas">
+      <div class="tint" aria-hidden="true"></div>
+      <div class="inner wrap">
+        <h1>La fuerza detrás<br>de <em>tu industria.</em></h1>
+        <p class="lead">Movemos lo que mueve a México. Bombas, refacciones y criterio técnico para tu operación.</p>
+        <div class="actions"><a class="button" href="#">Encuentra tu bomba</a><a class="ghostw" href="tel:+525521266091">(55) 2126-6091</a></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== B ===== -->
+  <div class="demo" id="opcion-b">
+    <div class="wrap variant-label"><strong>Opción B</strong><span>Póster: titular gigante centrado, las bombas emergen delante de las letras</span></div>
+    <section class="lb">
+      <h1>La fuerza detrás<br>de <em>tu industria.</em></h1>
+      <figure class="machines"><img src="assets/hero-pumps.webp" alt="Tren de bombas centrífugas"></figure>
+      <div class="meta">
+        <p class="lead">Movemos lo que mueve a México. Bombas, refacciones y criterio técnico.</p>
+        <div class="actions"><a class="button" href="#">Encuentra tu bomba</a></div>
+      </div>
+      <div class="contact"><a href="tel:+525521266091">(55) 2126-6091</a></div>
+    </section>
+  </div>
+
+  <!-- ===== C ===== -->
+  <div class="demo" id="opcion-c">
+    <div class="wrap variant-label"><strong>Opción C</strong><span>Contorno: la segunda línea en outline deja ver la maquinaria a través de las letras</span></div>
+    <section class="lc">
+      <figure class="machines"><img src="assets/hero-pumps.webp" alt="Tren de bombas centrífugas"></figure>
+      <div class="inner wrap">
+        <h1>La fuerza detrás<span class="outline">de <em>tu industria.</em></span></h1>
+        <div class="meta">
+          <p class="lead">Movemos lo que mueve a México. Bombas, refacciones y criterio técnico para tu operación.</p>
+          <div class="actions"><a class="button" href="#">Encuentra tu bomba</a><a class="ghost" href="tel:+525521266091">(55) 2126-6091</a></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== D ===== -->
+  <div class="demo" id="opcion-d">
+    <div class="wrap variant-label"><strong>Opción D</strong><span>Blanco sobre máquina: las bombas enormes como fondo, texto blanco encima a la derecha</span></div>
+    <section class="ld">
+      <figure class="machines"><img src="assets/hero-pumps.webp" alt="Tren de bombas centrífugas"></figure>
+      <div class="inner wrap">
+        <h1>La fuerza detrás<br>de <em>tu industria.</em></h1>
+        <p class="lead">Movemos lo que mueve a México.<br>Bombas, refacciones y criterio técnico.</p>
+        <div class="actions"><a class="button" href="#">Encuentra tu bomba</a><a class="ghostw" href="tel:+525521266091">(55) 2126-6091</a></div>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>

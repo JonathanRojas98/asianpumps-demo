@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASIPS | La foto dentro de las letras, variaciones</title>
+  <link rel="icon" href="assets/logo.jpeg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .pick{position:sticky;top:0;z-index:5;display:flex;gap:18px;align-items:center;background:var(--ink);color:var(--bg);padding:10px 24px;font-size:12px}
+    .pick a{color:inherit;border-bottom:1px solid transparent;padding:4px 0}
+    .pick a:hover{border-color:currentColor;color:inherit}
+    .variant-label{display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+    .variant-label strong{font-size:13px}
+    .variant-label span{font-size:12px;color:var(--muted)}
+    .demo{border-bottom:6px solid var(--ink)}
+    .lead{font-size:15px;max-width:380px;color:var(--muted)}
+    .actions{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+
+    /* I: E afinada, relleno denso de volutas */
+    .li{position:relative;min-height:86svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+    .li h1{font-size:clamp(58px,9vw,140px);letter-spacing:-.045em;line-height:.96;font-weight:750;color:var(--ink)}
+    .li h1 .clip{display:block;background-image:url('assets/hero-fill.webp');background-size:cover;background-position:center 42%;-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800;letter-spacing:-.04em}
+    .li .row{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;margin-top:34px}
+    .li .machines{position:absolute;right:-6%;bottom:-16%;width:min(46%,720px);z-index:1;pointer-events:none}
+    .li .machines img{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 26px rgba(15,31,42,.16))}
+
+    /* J: la misma idea sobre campo marino */
+    .lj{position:relative;min-height:88svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:#0A1B2A}
+    .lj h1{font-size:clamp(58px,9vw,140px);letter-spacing:-.045em;line-height:.96;font-weight:750;color:#fff}
+    .lj h1 .clip{display:block;background-image:url('assets/hero-fill.webp');background-size:cover;background-position:center 42%;-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800;letter-spacing:-.04em;filter:drop-shadow(0 0 22px rgba(141,208,247,.28))}
+    .lj .lead{color:#9DB4C6}
+    .lj .ghostw{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:16px 34px;border:1px solid rgba(255,255,255,.5);color:#fff;font-size:13px;font-weight:600}
+    .lj .machines{position:absolute;right:-6%;bottom:-16%;width:min(46%,720px);z-index:1;pointer-events:none}
+    .lj .machines img{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 30px rgba(0,0,0,.5))}
+
+    /* K: revelado, las letras son ventanas hacia la foto a color */
+    /* la capa tenue y el h1 ocupan la sección completa con el mismo cover, así los recortes coinciden */
+    .lk{position:relative;min-height:88svh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+    .lk .dim{position:absolute;inset:0;background-image:url('assets/hero.jpeg');background-size:cover;background-position:center;filter:grayscale(1);opacity:.16;pointer-events:none}
+    .lk h1{position:absolute;inset:0;display:flex;align-items:center;font-size:clamp(58px,9.2vw,146px);letter-spacing:-.045em;line-height:.95;font-weight:800;background-image:url('assets/hero-reveal.webp');background-size:cover;background-position:center;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:1px rgba(32,43,50,.1)}
+    .lk h1 .wrap{width:100%}
+    .lk .under{position:relative;z-index:1;padding-bottom:64px}
+
+    /* L: duotono de marca dentro de las letras */
+    .ll{position:relative;min-height:86svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+    .ll h1{font-size:clamp(58px,9vw,140px);letter-spacing:-.045em;line-height:.96;font-weight:750;color:var(--ink)}
+    .ll h1 .clip{display:block;background-image:url('assets/hero-fill-duo.webp');background-size:cover;background-position:center 42%;-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800;letter-spacing:-.04em}
+    .ll .row{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;margin-top:34px}
+    .ll .machines{position:absolute;right:-6%;bottom:-16%;width:min(46%,720px);z-index:1;pointer-events:none}
+    .ll .machines img{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 26px rgba(15,31,42,.16))}
+
+    @media(max-width:900px){
+      .li h1,.lj h1,.lk h1,.ll h1{font-size:12vw}
+      .li .machines,.lj .machines,.ll .machines{width:70%;bottom:-6%}
+    }
+  </style>
+</head>
+<body>
+  <div class="pick"><strong>La foto dentro de las letras</strong><a href="#opcion-i">I</a><a href="#opcion-j">J</a><a href="#opcion-k">K</a><a href="#opcion-l">L</a><a href="letras2.html">Ronda 2</a><a href="letras.html">Ronda 1</a><a href="./" style="margin-left:auto">Volver al sitio</a></div>
+
+  <!-- ===== I ===== -->
+  <div class="demo" id="opcion-i">
+    <div class="wrap variant-label"><strong>Opción I</strong><span>E afinada: el relleno ahora es la franja densa de volutas azules, con más saturación y contraste</span></div>
+    <section class="li">
+      <div class="wrap">
+        <h1>La fuerza detrás<span class="clip">de tu industria.</span></h1>
+        <div class="row">
+          <div>
+            <p class="lead">Movemos lo que mueve a México. Bombas, refacciones y criterio técnico para tu operación.</p>
+            <div class="actions"><a class="button" href="#">Encuentra tu bomba</a><a class="ghost" href="tel:+525521266091">(55) 2126-6091</a></div>
+          </div>
+        </div>
+      </div>
+      <figure class="machines"><img src="assets/hero-pumps.webp" alt="Tren de bombas centrífugas"></figure>
+    </section>
+  </div>
+
+  <!-- ===== J ===== -->
+  <div class="demo" id="opcion-j">
+    <div class="wrap variant-label"><strong>Opción J</strong><span>Sobre marino: el mismo relleno fotográfico, pero las letras brillan sobre fondo azul profundo</span></div>
+    <section class="lj">
+      <div class="wrap">
+        <h1>La fuerza detrás<span class="clip">de tu industria.</span></h1>
+        <div class="row" style="margin-top:34px">
+          <div>
+            <p class="lead">Movemos lo que mueve a México. Bombas, refacciones y criterio técnico para tu operación.</p>
+            <div class="actions"><a class="button" href="#">Encuentra tu bomba</a><a class="ghostw" href="tel:+525521266091">(55) 2126-6091</a></div>
+          </div>
+        </div>
+      </div>
+      <figure class="machines"><img src="assets/hero-pumps.webp" alt="Tren de bombas centrífugas"></figure>
+    </section>
+  </div>
+
+  <!-- ===== K ===== -->
+  <div class="demo" id="opcion-k">
+    <div class="wrap variant-label"><strong>Opción K</strong><span>Revelado: la sala completa en gris muy tenue de fondo y las letras como ventanas que la muestran a color</span></div>
+    <section class="lk">
+      <div class="dim" aria-hidden="true"></div>
+      <h1><span class="wrap">La fuerza detrás<br>de tu industria.</span></h1>
+      <div class="wrap under">
+        <p class="lead">Movemos lo que mueve a México. Bombas, refacciones y criterio técnico para tu operación.</p>
+        <div class="actions"><a class="button" href="#">Encuentra tu bomba</a><a class="ghost" href="tel:+525521266091">(55) 2126-6091</a></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== L ===== -->
+  <div class="demo" id="opcion-l">
+    <div class="wrap variant-label"><strong>Opción L</strong><span>Duotono: la fotografía dentro de las letras, pero teñida por completo con los azules de la marca</span></div>
+    <section class="ll">
+      <div class="wrap">
+        <h1>La fuerza detrás<span class="clip">de tu industria.</span></h1>
+        <div class="row">
+          <div>
+            <p class="lead">Movemos lo que mueve a México. Bombas, refacciones y criterio técnico para tu operación.</p>
+            <div class="actions"><a class="button" href="#">Encuentra tu bomba</a><a class="ghost" href="tel:+525521266091">(55) 2126-6091</a></div>
+          </div>
+        </div>
+      </div>
+      <figure class="machines"><img src="assets/hero-pumps.webp" alt="Tren de bombas centrífugas"></figure>
+    </section>
+  </div>
+
+</body>
+</html>

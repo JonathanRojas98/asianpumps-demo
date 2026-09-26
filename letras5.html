@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASIPS | Revelado K, intensidades</title>
+  <link rel="icon" href="assets/logo.jpeg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .pick{position:sticky;top:0;z-index:5;display:flex;gap:18px;align-items:center;background:var(--ink);color:var(--bg);padding:10px 24px;font-size:12px}
+    .pick a{color:inherit;border-bottom:1px solid transparent;padding:4px 0}
+    .pick a:hover{border-color:currentColor;color:inherit}
+    .variant-label{display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+    .variant-label strong{font-size:13px}
+    .variant-label span{font-size:12px;color:var(--muted)}
+    .demo{border-bottom:6px solid var(--ink)}
+    .lead{font-size:15px;max-width:380px;color:var(--muted)}
+    .actions{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+
+    /* base compartida del revelado */
+    .rv{position:relative;min-height:88svh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+    .rv .dim{position:absolute;inset:0;background-image:url('assets/hero.jpeg');background-size:cover;background-position:center;filter:grayscale(1);opacity:.16;pointer-events:none}
+    .rv h1{position:absolute;inset:0;display:flex;align-items:center;font-size:clamp(58px,9.2vw,146px);letter-spacing:-.045em;line-height:.95;font-weight:800;background-size:cover;background-position:center;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:1px rgba(32,43,50,.1)}
+    .rv h1 .wrap{width:100%}
+    .rv .under{position:relative;z-index:1;padding-bottom:64px}
+
+    /* Q: acero medio */
+    .lq h1{background-image:url('assets/hero-reveal-1.webp')}
+
+    /* R: azul fuerte */
+    .lr h1{background-image:url('assets/hero-reveal-2.webp')}
+
+    /* S: duotono profundo */
+    .ls h1{background-image:url('assets/hero-reveal-duo.webp')}
+
+    /* T: azul fuerte con atmósfera, el fondo también se entinta */
+    .lt .dim{background-image:url('assets/hero-duo.webp');filter:none;opacity:.2}
+    .lt h1{background-image:url('assets/hero-reveal-2.webp')}
+
+    @media(max-width:900px){
+      .rv h1{font-size:12vw}
+      .rv .under{padding-bottom:40px}
+    }
+  </style>
+</head>
+<body>
+  <div class="pick"><strong>Revelado K, intensidades</strong><a href="#opcion-q">Q</a><a href="#opcion-r">R</a><a href="#opcion-s">S</a><a href="#opcion-t">T</a><a href="letras3.html#opcion-k">K original</a><a href="./" style="margin-left:auto">Volver al sitio</a></div>
+
+  <!-- ===== Q ===== -->
+  <div class="demo" id="opcion-q">
+    <div class="wrap variant-label"><strong>Opción Q</strong><span>Acero medio: un paso más intensa que la K actual, las luces bajan a azul acero franco</span></div>
+    <section class="rv lq">
+      <div class="dim" aria-hidden="true"></div>
+      <h1><span class="wrap">La fuerza detrás<br>de tu industria.</span></h1>
+      <div class="wrap under">
+        <p class="lead">Movemos lo que mueve a México. Bombas, refacciones y criterio técnico para tu operación.</p>
+        <div class="actions"><a class="button" href="#">Encuentra tu bomba</a><a class="ghost" href="tel:+525521266091">(55) 2126-6091</a></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== R ===== -->
+  <div class="demo" id="opcion-r">
+    <div class="wrap variant-label"><strong>Opción R</strong><span>Azul fuerte: las luces quedan en azul medio de marca, letras intensas de punta a punta</span></div>
+    <section class="rv lr">
+      <div class="dim" aria-hidden="true"></div>
+      <h1><span class="wrap">La fuerza detrás<br>de tu industria.</span></h1>
+      <div class="wrap under">
+        <p class="lead">Movemos lo que mueve a México. Bombas, refacciones y criterio técnico para tu operación.</p>
+        <div class="actions"><a class="button" href="#">Encuentra tu bomba</a><a class="ghost" href="tel:+525521266091">(55) 2126-6091</a></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== S ===== -->
+  <div class="demo" id="opcion-s">
+    <div class="wrap variant-label"><strong>Opción S</strong><span>Duotono profundo: la foto dentro de las letras convertida a azules puros, sin luces claras</span></div>
+    <section class="rv ls">
+      <div class="dim" aria-hidden="true"></div>
+      <h1><span class="wrap">La fuerza detrás<br>de tu industria.</span></h1>
+      <div class="wrap under">
+        <p class="lead">Movemos lo que mueve a México. Bombas, refacciones y criterio técnico para tu operación.</p>
+        <div class="actions"><a class="button" href="#">Encuentra tu bomba</a><a class="ghost" href="tel:+525521266091">(55) 2126-6091</a></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== T ===== -->
+  <div class="demo" id="opcion-t">
+    <div class="wrap variant-label"><strong>Opción T</strong><span>Con atmósfera: letras en azul fuerte y el fondo tenue también entintado de marca</span></div>
+    <section class="rv lt">
+      <div class="dim" aria-hidden="true"></div>
+      <h1><span class="wrap">La fuerza detrás<br>de tu industria.</span></h1>
+      <div class="wrap under">
+        <p class="lead">Movemos lo que mueve a México. Bombas, refacciones y criterio técnico para tu operación.</p>
+        <div class="actions"><a class="button" href="#">Encuentra tu bomba</a><a class="ghost" href="tel:+525521266091">(55) 2126-6091</a></div>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>

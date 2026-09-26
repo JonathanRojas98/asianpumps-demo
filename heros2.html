@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASIPS | Heros integrados</title>
+  <link rel="icon" href="assets/logo.jpeg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .pick{position:sticky;top:0;z-index:9;display:flex;gap:18px;align-items:center;background:var(--ink);color:var(--bg);padding:10px 24px;font-size:12px}
+    .pick a{color:inherit;border-bottom:1px solid transparent;padding:4px 0}
+    .pick a:hover{border-color:currentColor;color:inherit}
+    .variant-label{display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+    .variant-label strong{font-size:13px}
+    .variant-label span{font-size:12px;color:var(--muted)}
+    .demo{border-bottom:6px solid var(--ink)}
+    .lead{font-size:15px;max-width:360px;color:var(--muted)}
+    .actions{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+
+    /* ===== 1: muelle, el tren entra a la página y pisa un suelo ===== */
+    .m1{position:relative;min-height:92svh;overflow:clip;background:linear-gradient(var(--bg) 0 58%,#ccd7dd 58% 100%)}
+    .m1 .inner{position:relative;z-index:2;display:flex;justify-content:space-between;gap:48px;padding-top:64px}
+    .m1 h1{font-size:clamp(48px,5.6vw,88px);letter-spacing:-.045em;line-height:1.02;font-weight:750}
+    .m1 h1 em{color:var(--blue);font-style:normal}
+    .m1 .aside{max-width:300px;padding-top:14px}
+    .m1 .aside .lead{font-size:14px}
+    .m1 .machines{position:absolute;left:50%;transform:translateX(-46%);bottom:-7%;width:min(74%,1150px);z-index:1;pointer-events:none}
+    .m1 .machines img{width:100%;height:auto;display:block}
+    .m1 .shadow{position:absolute;left:50%;transform:translateX(-46%);bottom:-2%;width:min(70%,1100px);height:90px;background:radial-gradient(50% 50% at 50% 50%,rgba(15,31,42,.34),transparent 70%);z-index:0}
+    .m1 .paint{position:absolute;left:76%;bottom:20%;transform:rotate(-2deg);z-index:2;font-weight:800;font-size:clamp(20px,2.2vw,36px);letter-spacing:.2em;color:rgba(255,255,255,.88);pointer-events:none}
+    .m1 .floor-meta{position:absolute;left:64px;bottom:44px;z-index:2;font-size:13px;color:#41535d}
+    .m1 .floor-meta strong{display:block;font-size:15px;color:var(--ink)}
+
+    /* ===== 2: sala real con tarjetas, estilo escenario ===== */
+    .m2-frame{padding:18px}
+    .m2{position:relative;min-height:88svh;overflow:clip;border-radius:22px;background:#0d2233}
+    .m2 .photo{position:absolute;inset:0;background-image:linear-gradient(rgba(10,27,42,.18),rgba(10,27,42,.05) 40%,rgba(10,27,42,.42)),url('assets/hero.jpeg');background-size:cover;background-position:center 70%}
+    .m2 .inner{position:relative;z-index:2;padding:56px 56px 0}
+    .m2 h1{font-size:clamp(44px,5vw,80px);letter-spacing:-.045em;line-height:1.02;font-weight:750;color:#fff;text-shadow:0 2px 10px rgba(10,27,42,.35);max-width:12ch}
+    .m2 .card{position:absolute;top:56px;right:56px;z-index:3;width:min(320px,80vw);background:rgba(255,255,255,.94);border-radius:16px;padding:22px 24px;box-shadow:0 24px 60px rgba(10,27,42,.35)}
+    .m2 .card h2{font-size:18px;letter-spacing:-.02em;margin-bottom:6px}
+    .m2 .card p{font-size:13px;color:var(--muted)}
+    .m2 .card a{display:inline-block;margin-top:14px;font-size:13px;font-weight:650;color:var(--cta);border-bottom:1px solid currentColor;padding-bottom:2px}
+    .m2 .dot{position:absolute;z-index:2;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 0 0 5px rgba(255,255,255,.35)}
+    .m2 .dot.d1{left:34%;bottom:38%}
+    .m2 .dot.d2{left:58%;bottom:52%}
+    .m2 .tag{position:absolute;left:56px;bottom:48px;z-index:3;background:rgba(255,255,255,.94);border-radius:14px;padding:16px 20px;box-shadow:0 18px 44px rgba(10,27,42,.3)}
+    .m2 .tag strong{display:block;font-size:14px;margin-bottom:2px}
+    .m2 .tag span{font-size:12.5px;color:var(--muted)}
+    .m2 .cta-row{position:absolute;right:56px;bottom:48px;z-index:3;display:flex;gap:14px}
+    .m2 .ghostw{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:16px 30px;border:1px solid rgba(255,255,255,.65);color:#fff;font-size:13px;font-weight:600;border-radius:2px}
+
+    /* ===== 3: plinto, la banda de interfaz oculta los pies del equipo ===== */
+    .m3{position:relative;min-height:92svh;overflow:clip;display:flex;flex-direction:column}
+    .m3 .inner{position:relative;z-index:1;text-align:center;padding-top:56px}
+    .m3 h1{font-size:clamp(48px,6vw,96px);letter-spacing:-.045em;line-height:1;font-weight:750}
+    .m3 h1 em{color:var(--blue);font-style:normal}
+    .m3 .inner .lead{margin:18px auto 0;text-align:center}
+    .m3 .machines{position:absolute;left:50%;transform:translateX(-50%);bottom:70px;width:min(51%,780px);z-index:2;pointer-events:none}
+    .m3 .machines img{width:100%;height:auto;display:block;filter:drop-shadow(0 34px 26px rgba(15,31,42,.22))}
+    .m3 .plinth{position:relative;z-index:3;margin-top:auto;background:var(--ink);color:var(--bg);display:flex;align-items:center;justify-content:space-between;gap:32px;padding:26px 64px}
+    .m3 .plinth p{font-size:13px;color:#aebbc3}
+    .m3 .plinth p strong{display:block;font-size:16px;color:#fff;letter-spacing:-.01em}
+    .m3 .plinth a{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:14px 28px;background:var(--blue);color:#fff;font-size:13px;font-weight:600}
+
+    /* ===== 4: esquina, el equipo gigante cortado por dos bordes ===== */
+    .m4{position:relative;min-height:92svh;overflow:clip;background:radial-gradient(120% 90% at 85% 100%,#d3dde2 0%,var(--bg) 55%)}
+    .m4 .inner{position:relative;z-index:2;padding-top:72px;max-width:660px}
+    .m4 h1{font-size:clamp(44px,4.9vw,78px);letter-spacing:-.045em;line-height:1;font-weight:750}
+    .m4 h1 em{color:var(--blue);font-style:normal}
+    .m4 .machines{position:absolute;right:-14%;bottom:-22%;width:min(78%,1250px);z-index:1;pointer-events:none}
+    .m4 .machines img{width:100%;height:auto;display:block}
+    .m4 .chip{position:absolute;right:12%;bottom:42%;z-index:3;background:#fff;border-radius:14px;padding:16px 20px;box-shadow:0 20px 50px rgba(10,27,42,.22)}
+    .m4 .chip strong{display:block;font-size:14px;margin-bottom:2px}
+    .m4 .chip span{font-size:12.5px;color:var(--muted)}
+    .m4 .chip a{display:inline-block;margin-top:10px;font-size:12.5px;font-weight:650;color:var(--cta);border-bottom:1px solid currentColor;padding-bottom:2px}
+
+    @media(max-width:900px){
+      .m1 .inner{flex-direction:column;gap:18px}
+      .m1 .machines{width:130%;transform:translateX(-50%)}
+      .m1 .paint{display:none}
+      .m1 .floor-meta{left:22px;bottom:24px}
+      .m2 .inner{padding:28px 22px 0}
+      .m2 .card{position:static;margin:22px 22px 0 auto}
+      .m2 .tag{left:22px;bottom:24px}
+      .m2 .cta-row{right:22px;bottom:110px;flex-direction:column}
+      .m3 .machines{width:110%;bottom:110px}
+      .m3 .plinth{flex-wrap:wrap;padding:22px}
+      .m4 .machines{right:-40%;width:140%}
+      .m4 .chip{right:22px;bottom:26%}
+    }
+  </style>
+</head>
+<body>
+  <div class="pick"><strong>Heros integrados</strong><a href="#muelle">1 Muelle</a><a href="#sala">2 Sala</a><a href="#plinto">3 Plinto</a><a href="#esquina">4 Esquina</a><a href="letras7.html">Colores</a><a href="letras6.html">Composiciones</a><a href="./" style="margin-left:auto">Volver al sitio</a></div>
+
+  <!-- ===== 1 ===== -->
+  <div class="demo" id="muelle">
+    <div class="wrap variant-label"><strong>Hero 1</strong><span>Muelle: el tren pisa un suelo real, entra cortado por abajo y lleva la marca pintada en la base</span></div>
+    <section class="m1">
+      <div class="wrap inner">
+        <h1>La fuerza detrás<br>de <em>tu industria.</em></h1>
+        <div class="aside">
+          <p class="lead">Bombas, refacciones y criterio técnico para tu operación, de nuestra bodega a todo México.</p>
+          <div class="actions"><a class="button" href="#">Encuentra tu bomba</a></div>
+        </div>
+      </div>
+      <div class="shadow" aria-hidden="true"></div>
+      <figure class="machines"><img src="assets/hero-pumps-ai.webp" alt="Tren de bombas centrífugas"></figure>
+      <span class="paint" aria-hidden="true">ASIPS</span>
+      <div class="floor-meta"><strong>(55) 2126-6091</strong>Asesoría técnica directa</div>
+    </section>
+  </div>
+
+  <!-- ===== 2 ===== -->
+  <div class="demo" id="sala">
+    <div class="wrap variant-label"><strong>Hero 2</strong><span>Sala real: la fotografía como escenario y la interfaz vive dentro, con puntos sobre el equipo</span></div>
+    <div class="m2-frame">
+      <section class="m2">
+        <div class="photo" aria-hidden="true"></div>
+        <div class="inner">
+          <h1>La fuerza detrás de tu industria.</h1>
+        </div>
+        <span class="dot d1" aria-hidden="true"></span>
+        <span class="dot d2" aria-hidden="true"></span>
+        <div class="card">
+          <h2>Nueve familias de bombas</h2>
+          <p>Centrífugas, sumergibles, de tornillo, neumáticas y más, con refacciones y alternativas OEM.</p>
+          <a href="#">Explorar el catálogo</a>
+        </div>
+        <div class="tag"><strong>De nuestra bodega a todo México</strong><span>Entregas en 32 estados</span></div>
+        <div class="cta-row"><a class="button" href="#">Encuentra tu bomba</a><a class="ghostw" href="tel:+525521266091">(55) 2126-6091</a></div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===== 3 ===== -->
+  <div class="demo" id="plinto">
+    <div class="wrap variant-label"><strong>Hero 3</strong><span>Plinto: la banda de datos al pie oculta las patas del equipo, el tren queda plantado en la interfaz</span></div>
+    <section class="m3">
+      <div class="wrap inner">
+        <h1>La fuerza detrás<br>de <em>tu industria.</em></h1>
+        <p class="lead">Movemos lo que mueve a México. Bombas, refacciones y criterio técnico.</p>
+      </div>
+      <figure class="machines"><img src="assets/hero-pumps-ai.webp" alt="Tren de bombas centrífugas"></figure>
+      <div class="plinth">
+        <p><strong>Nueve familias</strong>de bombas en catálogo</p>
+        <p><strong>Marcas originales</strong>y alternativas OEM</p>
+        <p><strong>32 estados</strong>con entrega a tu planta</p>
+        <a href="tel:+525521266091">(55) 2126-6091</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== 4 ===== -->
+  <div class="demo" id="esquina">
+    <div class="wrap variant-label"><strong>Hero 4</strong><span>Esquina: el equipo gigante cortado por dos bordes y una tarjeta que se apoya sobre él</span></div>
+    <section class="m4">
+      <div class="wrap inner">
+        <h1>La fuerza detrás<br>de <em>tu industria.</em></h1>
+        <p class="lead" style="margin-top:20px">Movemos lo que mueve a México. Bombas, refacciones y criterio técnico para tu operación.</p>
+        <div class="actions"><a class="button" href="#">Encuentra tu bomba</a><a class="ghost" href="tel:+525521266091">(55) 2126-6091</a></div>
+      </div>
+      <figure class="machines"><img src="assets/hero-pumps-ai.webp" alt="Tren de bombas centrífugas"></figure>
+      <div class="chip"><strong>Bomba centrífuga ANSI</strong><span>La más solicitada del catálogo</span><br><a href="#">Cotizar este equipo</a></div>
+    </section>
+  </div>
+
+</body>
+</html>

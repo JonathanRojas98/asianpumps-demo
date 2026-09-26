@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASIPS | Hero explosión</title>
+  <link rel="icon" href="assets/logo.jpeg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .pick{position:sticky;top:0;z-index:9;display:flex;gap:18px;align-items:center;background:var(--ink);color:var(--bg);padding:10px 24px;font-size:12px}
+    .pick a{color:inherit;border-bottom:1px solid transparent;padding:4px 0}
+    .pick a:hover{border-color:currentColor;color:inherit}
+    .variant-label{display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+    .variant-label strong{font-size:13px}
+    .variant-label span{font-size:12px;color:var(--muted)}
+    .lead{font-size:15px;max-width:400px;color:var(--muted)}
+    .actions{display:flex;gap:14px;margin-top:24px;flex-wrap:wrap}
+
+    .exf{position:relative;min-height:92svh;overflow:clip;display:flex;flex-direction:column;justify-content:space-between;padding-block:48px 56px}
+    .exf .head h1{font-size:clamp(44px,5.4vw,86px);letter-spacing:-.045em;line-height:1;font-weight:750}
+    .exf .head h1 em{color:var(--blue);font-style:normal}
+
+    .art{position:relative;width:min(96%,1520px);margin-inline:auto;aspect-ratio:2172/724}
+    .part{position:absolute;inset:0;will-change:transform}
+    .part img{width:100%;height:100%;display:block;filter:drop-shadow(0 22px 18px rgba(15,31,42,.16));transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+
+    @keyframes fly{from{transform:translate(var(--fx),var(--fy)) rotate(var(--fr));opacity:0}30%{opacity:1}to{transform:none;opacity:1}}
+    .part{animation:fly 1.05s cubic-bezier(.2,.75,.25,1) var(--d) both}
+    .p-motor{--fx:-6%;--fy:-12%;--fr:-6deg;--d:.05s}
+    .p-acople{--fx:-3%;--fy:14%;--fr:4deg;--d:.15s}
+    .p-soporte{--fx:-2%;--fy:-16%;--fr:-5deg;--d:.25s}
+    .p-sello{--fx:0%;--fy:18%;--fr:6deg;--d:.35s}
+    .p-empaque{--fx:0%;--fy:-22%;--fr:-8deg;--d:.43s}
+    .p-impulsor{--fx:2%;--fy:16%;--fr:9deg;--d:.5s}
+    .p-voluta{--fx:5%;--fy:-10%;--fr:5deg;--d:.6s}
+    .p-brida{--fx:7%;--fy:12%;--fr:-7deg;--d:.7s}
+    .p-tornillos{--fx:9%;--fy:-14%;--fr:10deg;--d:.78s}
+
+    /* al pasar el cursor las piezas se acercan: la bomba casi se arma */
+    .art:hover .p-motor img{transform:translateX(2.6%)}
+    .art:hover .p-acople img{transform:translateX(1.8%)}
+    .art:hover .p-soporte img{transform:translateX(1.1%)}
+    .art:hover .p-sello img{transform:translateX(.7%)}
+    .art:hover .p-empaque img{transform:translateX(.45%)}
+    .art:hover .p-impulsor img{transform:translateX(.25%)}
+    .art:hover .p-voluta img{transform:translateX(-1.6%)}
+    .art:hover .p-brida img{transform:translateX(-3.6%)}
+    .art:hover .p-tornillos img{transform:translateX(-5.2%)}
+
+    .calls{position:relative;width:min(96%,1520px);margin:14px auto 0;height:52px}
+    .call{position:absolute;top:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--ink);white-space:nowrap;opacity:0;animation:call-in .5s ease var(--cd) forwards}
+    .call::before{content:"";width:1px;height:20px;background:var(--muted)}
+    @keyframes call-in{to{opacity:1}}
+    .c-motor{left:18%;--cd:1.5s}
+    .c-sello{left:63.8%;--cd:1.65s}
+    .c-impulsor{left:72.2%;--cd:1.8s}
+    .c-voluta{left:84.1%;--cd:1.95s}
+
+    .exf .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
+    .exf .foot .contact{font-weight:650;font-size:15px}
+
+    @media (prefers-reduced-motion:reduce){
+      .part{animation:none}
+      .part img{transition:none}
+      .call{animation:none;opacity:1}
+    }
+    @media(max-width:900px){
+      .exf{padding-block:28px 32px;min-height:auto;gap:22px}
+      .exf .head h1{font-size:9.6vw}
+      .c-sello,.c-impulsor{display:none}
+      .call{font-size:11px}
+      .exf .foot{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <div class="pick"><strong>Hero explosión</strong><a href="heros2.html">Heros integrados</a><a href="letras7.html">Colores</a><a href="./" style="margin-left:auto">Volver al sitio</a></div>
+
+  <div class="wrap variant-label"><strong>Hero 5</strong><span>Explosión real: el despiece generado a partir de la bomba del hero; vuela, se ordena y casi se arma al pasar el cursor</span></div>
+  <section class="exf">
+    <div class="wrap head">
+      <h1>Conocemos tu bomba<br><em>por dentro.</em></h1>
+    </div>
+    <div>
+      <div class="art" aria-label="Despiece de bomba centrífuga: motor, acople, soporte, sello, empaque, impulsor, voluta, brida y tornillería">
+        <div class="part p-motor"><img src="assets/xp-motor.webp" alt=""></div>
+        <div class="part p-acople"><img src="assets/xp-acople.webp" alt=""></div>
+        <div class="part p-soporte"><img src="assets/xp-soporte.webp" alt=""></div>
+        <div class="part p-sello"><img src="assets/xp-sello.webp" alt=""></div>
+        <div class="part p-empaque"><img src="assets/xp-empaque.webp" alt=""></div>
+        <div class="part p-impulsor"><img src="assets/xp-impulsor.webp" alt=""></div>
+        <div class="part p-voluta"><img src="assets/xp-voluta.webp" alt=""></div>
+        <div class="part p-brida"><img src="assets/xp-brida.webp" alt=""></div>
+        <div class="part p-tornillos"><img src="assets/xp-tornillos.webp" alt=""></div>
+      </div>
+      <div class="calls" aria-hidden="true">
+        <span class="call c-motor">Motor eléctrico</span>
+        <span class="call c-sello">Sello mecánico</span>
+        <span class="call c-impulsor">Impulsor</span>
+        <span class="call c-voluta">Voluta</span>
+      </div>
+    </div>
+    <div class="wrap foot">
+      <div>
+        <p class="lead">Cada pieza importa. Bombas, refacciones y criterio técnico para tu operación, de nuestra bodega a todo México.</p>
+        <div class="actions"><a class="button" href="#">Encuentra tu bomba</a><a class="ghost" href="tel:+525521266091">(55) 2126-6091</a></div>
+      </div>
+      <a class="contact" href="#">Refacciones para las nueve familias</a>
+    </div>
+  </section>
+
+</body>
+</html>

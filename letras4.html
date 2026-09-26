@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASIPS | Revelado y duotono, variaciones</title>
+  <link rel="icon" href="assets/logo.jpeg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .pick{position:sticky;top:0;z-index:5;display:flex;gap:18px;align-items:center;background:var(--ink);color:var(--bg);padding:10px 24px;font-size:12px}
+    .pick a{color:inherit;border-bottom:1px solid transparent;padding:4px 0}
+    .pick a:hover{border-color:currentColor;color:inherit}
+    .variant-label{display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+    .variant-label strong{font-size:13px}
+    .variant-label span{font-size:12px;color:var(--muted)}
+    .demo{border-bottom:6px solid var(--ink)}
+    .lead{font-size:15px;max-width:380px;color:var(--muted)}
+    .actions{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+
+    /* M: revelado nocturno, la sala casi negra y las letras la encienden */
+    .lm{position:relative;min-height:88svh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+    .lm .night{position:absolute;inset:0;background-image:linear-gradient(rgba(8,20,32,.92),rgba(8,20,32,.92)),url('assets/hero.jpeg');background-size:cover;background-position:center;pointer-events:none}
+    .lm h1{position:absolute;inset:0;display:flex;align-items:center;font-size:clamp(58px,9.2vw,146px);letter-spacing:-.045em;line-height:.95;font-weight:800;background-image:url('assets/hero.jpeg');background-size:cover;background-position:center;-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 30px rgba(141,208,247,.18))}
+    .lm h1 .wrap{width:100%}
+    .lm .under{position:relative;z-index:1;padding-bottom:64px}
+    .lm .lead{color:#9DB4C6}
+    .lm .ghostw{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:16px 34px;border:1px solid rgba(255,255,255,.5);color:#fff;font-size:13px;font-weight:600}
+
+    /* N: revelado con jerarquía, solo la palabra grande es ventana */
+    .ln{position:relative;min-height:88svh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+    .ln .dim{position:absolute;inset:0;background-image:url('assets/hero.jpeg');background-size:cover;background-position:center;filter:grayscale(1);opacity:.14;pointer-events:none}
+    .ln h1{position:absolute;inset:0;display:flex;align-items:center;font-weight:800}
+    .ln h1 .wrap{width:100%}
+    .ln h1 .small{display:block;font-size:clamp(22px,2.6vw,40px);font-weight:600;letter-spacing:-.01em;color:var(--ink);margin-bottom:10px}
+    .ln h1 .big{display:block;font-size:clamp(72px,13vw,210px);letter-spacing:-.05em;line-height:.92;background-image:url('assets/hero-fill.webp');background-size:cover;background-position:center 42%;-webkit-background-clip:text;background-clip:text;color:transparent}
+    .ln .under{position:relative;z-index:1;padding-bottom:64px}
+
+    /* O: revelado duotono, todo en azules de marca */
+    .lo{position:relative;min-height:88svh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+    .lo .dim{position:absolute;inset:0;background-image:url('assets/hero-duo.webp');background-size:cover;background-position:center;opacity:.15;pointer-events:none}
+    .lo h1{position:absolute;inset:0;display:flex;align-items:center;font-size:clamp(58px,9.2vw,146px);letter-spacing:-.045em;line-height:.95;font-weight:800;background-image:url('assets/hero-duo.webp');background-size:cover;background-position:center;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:1px rgba(8,126,188,.14)}
+    .lo h1 .wrap{width:100%}
+    .lo .under{position:relative;z-index:1;padding-bottom:64px}
+
+    /* P: duotono póster, las bombas recortadas como protagonistas al pie */
+    .lp{position:relative;min-height:92svh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start}
+    .lp h1{margin-top:8vh;text-align:center;font-size:clamp(60px,9.2vw,148px);letter-spacing:-.05em;line-height:.96;font-weight:750;color:var(--ink)}
+    .lp h1 .clip{display:block;background-image:url('assets/hero-fill-duo.webp');background-size:cover;background-position:center 42%;-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800;letter-spacing:-.04em}
+    .lp .machines{position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:min(56%,860px);z-index:1;pointer-events:none}
+    .lp .machines img{width:100%;height:auto;display:block;filter:drop-shadow(0 40px 30px rgba(15,31,42,.18))}
+    .lp .meta{position:absolute;left:64px;bottom:56px;z-index:2}
+    .lp .contact{position:absolute;right:64px;bottom:56px;z-index:2}
+    .lp .contact a{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:16px 30px;border:1px solid var(--ink);color:var(--ink);background:var(--bg);font-size:13px;font-weight:600}
+
+    @media(max-width:900px){
+      .lm h1,.lo h1{font-size:12vw}
+      .ln h1 .big{font-size:15vw}
+      .lp h1{font-size:12.5vw}
+      .lp .machines{width:100%}
+      .lp .meta{left:22px;bottom:30px}
+      .lp .contact{display:none}
+      .lm .under,.ln .under,.lo .under{padding-bottom:40px}
+    }
+  </style>
+</head>
+<body>
+  <div class="pick"><strong>Revelado y duotono</strong><a href="#opcion-m">M</a><a href="#opcion-n">N</a><a href="#opcion-o">O</a><a href="#opcion-p">P</a><a href="letras3.html">Ronda 3</a><a href="letras2.html">Ronda 2</a><a href="./" style="margin-left:auto">Volver al sitio</a></div>
+
+  <!-- ===== M ===== -->
+  <div class="demo" id="opcion-m">
+    <div class="wrap variant-label"><strong>Opción M</strong><span>Revelado nocturno: la sala casi a oscuras y las letras la encienden a todo color</span></div>
+    <section class="lm">
+      <div class="night" aria-hidden="true"></div>
+      <h1><span class="wrap">La fuerza detrás<br>de tu industria.</span></h1>
+      <div class="wrap under">
+        <p class="lead">Movemos lo que mueve a México. Bombas, refacciones y criterio técnico para tu operación.</p>
+        <div class="actions"><a class="button" href="#">Encuentra tu bomba</a><a class="ghostw" href="tel:+525521266091">(55) 2126-6091</a></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== N ===== -->
+  <div class="demo" id="opcion-n">
+    <div class="wrap variant-label"><strong>Opción N</strong><span>Revelado con jerarquía: intro pequeña en tinta y solo "tu industria." como ventana colosal</span></div>
+    <section class="ln">
+      <div class="dim" aria-hidden="true"></div>
+      <h1><span class="wrap"><span class="small">La fuerza detrás de</span><span class="big">tu industria.</span></span></h1>
+      <div class="wrap under">
+        <p class="lead">Movemos lo que mueve a México. Bombas, refacciones y criterio técnico para tu operación.</p>
+        <div class="actions"><a class="button" href="#">Encuentra tu bomba</a><a class="ghost" href="tel:+525521266091">(55) 2126-6091</a></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== O ===== -->
+  <div class="demo" id="opcion-o">
+    <div class="wrap variant-label"><strong>Opción O</strong><span>Revelado duotono: el híbrido, todo el efecto ventana pero en los azules exactos de la marca</span></div>
+    <section class="lo">
+      <div class="dim" aria-hidden="true"></div>
+      <h1><span class="wrap">La fuerza detrás<br>de tu industria.</span></h1>
+      <div class="wrap under">
+        <p class="lead">Movemos lo que mueve a México. Bombas, refacciones y criterio técnico para tu operación.</p>
+        <div class="actions"><a class="button" href="#">Encuentra tu bomba</a><a class="ghost" href="tel:+525521266091">(55) 2126-6091</a></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== P ===== -->
+  <div class="demo" id="opcion-p">
+    <div class="wrap variant-label"><strong>Opción P</strong><span>Duotono póster: titular centrado con la línea duotono y el tren de bombas emergiendo al pie</span></div>
+    <section class="lp">
+      <h1>La fuerza detrás<span class="clip">de tu industria.</span></h1>
+      <figure class="machines"><img src="assets/hero-pumps.webp" alt="Tren de bombas centrífugas"></figure>
+      <div class="meta">
+        <p class="lead">Movemos lo que mueve a México. Bombas, refacciones y criterio técnico.</p>
+        <div class="actions"><a class="button" href="#">Encuentra tu bomba</a></div>
+      </div>
+      <div class="contact"><a href="tel:+525521266091">(55) 2126-6091</a></div>
+    </section>
+  </div>
+
+</body>
+</html>
